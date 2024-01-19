@@ -1,0 +1,70 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<DRental.Models.Movie>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Id")
+            </th>
+            <th>
+                @Html.DisplayName("Title")
+            </th>
+            <th>
+                @Html.DisplayName("Release Date")
+            </th>
+            <th>
+                @Html.DisplayName("Genre")
+            </th>
+            <th>
+                @Html.DisplayName("Director")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MovieId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReleaseDate)
+                </td>
+                <td>
+                    @foreach (var genre in item.Genres)
+                    {
+                        <span>@genre</span>
+                        if (genre != item.Genres.Last())
+                        {
+                            <span>, </span>
+                        }
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Director)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.MovieId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.MovieId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.MovieId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
