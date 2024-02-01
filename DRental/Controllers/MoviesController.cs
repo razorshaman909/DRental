@@ -15,7 +15,7 @@ namespace DRental.Controllers
         }
 
         //GET: Movies
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index() 
         {
             IEnumerable<Movie> movies = await _movieService.GetMovies();
             return View(movies);

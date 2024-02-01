@@ -47,17 +47,10 @@
                     @Html.DisplayFor(modelItem => item.ReleaseDate)
                 </td>
                 <td>
-                    @foreach (var genre in item.Genres)
-                    {
-                        <span>@genre</span>
-                        if (genre != item.Genres.Last())
-                        {
-                            <span>, </span>
-                        }
-                    }
+                    @Html.DisplayFor(modelItem => item.Genres)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Director)
+                    @Html.DisplayFor(modelItem => item.Director.Name)
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.MovieId">Edit</a> |

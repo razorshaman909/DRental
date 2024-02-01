@@ -6,8 +6,10 @@
         public string? StoreName { get; set; }
         public string? Address { get; set; }
 
-        public IList<Member>? Members { get; }
+        public IList<Member>? Members { get; set; }
 
-        public IList<StockCount>? StockCounts { get; }
+        public IList<Stock>? Stocks { get; set; }
+
+        public IList<Order>? Order { get; set; }
     }
 }
